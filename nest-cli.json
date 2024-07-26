@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/saga/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/saga/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/saga",
+  "projects": {
+    "saga": {
+      "type": "application",
+      "root": "apps/saga",
+      "entryFile": "main",
+      "sourceRoot": "apps/saga/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/saga/tsconfig.app.json"
+      }
+    },
+    "payments": {
+      "type": "application",
+      "root": "apps/payments",
+      "entryFile": "main",
+      "sourceRoot": "apps/payments/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/payments/tsconfig.app.json"
+      }
+    },
+    "flights": {
+      "type": "application",
+      "root": "apps/flights",
+      "entryFile": "main",
+      "sourceRoot": "apps/flights/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/flights/tsconfig.app.json"
+      }
+    },
+    "hotels": {
+      "type": "application",
+      "root": "apps/hotels",
+      "entryFile": "main",
+      "sourceRoot": "apps/hotels/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/hotels/tsconfig.app.json"
+      }
+    }
+  }
+}
