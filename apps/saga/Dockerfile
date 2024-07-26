@@ -12,7 +12,7 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 COPY apps/saga apps/saga
-COPY libs libs
+
 
 RUN cd apps/saga && pnpm install
 

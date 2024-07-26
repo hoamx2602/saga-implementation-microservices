@@ -12,7 +12,7 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 COPY apps/flights apps/flights
-COPY libs libs
+
 
 RUN cd apps/flights && pnpm install
 

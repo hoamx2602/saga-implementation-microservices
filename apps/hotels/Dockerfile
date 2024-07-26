@@ -12,7 +12,7 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 COPY apps/hotels apps/hotels
-COPY libs libs
+
 
 RUN cd apps/hotels && pnpm install
 
