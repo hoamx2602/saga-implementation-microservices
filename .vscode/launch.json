@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flights",
+      "request": "attach",
+      "cwd": "${workspaceFolder}/apps/flights",
+      "type": "node",
+      "port": 9220
+    },
+    {
+      "name": "hotels",
+      "request": "attach",
+      "cwd": "${workspaceFolder}/apps/hotels",
+      "type": "node",
+      "port": 9229
+    },
+    {
+      "name": "payments",
+      "request": "attach",
+      "cwd": "${workspaceFolder}/apps/payments",
+      "type": "node",
+      "port": 9229
+    },
+    {
+      "name": "Saga",
+      "request": "attach",
+      "cwd": "${workspaceFolder}/apps/saga",
+      "type": "node",
+      "port": 9229
+    }
+  ]
+}
