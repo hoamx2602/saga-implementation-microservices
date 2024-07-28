@@ -1,8 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { MessagePattern, Payload } from '@nestjs/microservices';
+import { Inject, Injectable } from '@nestjs/common';
+import { ClientKafka, MessagePattern, Payload } from '@nestjs/microservices';
 
 @Injectable()
 export class HotelsService {
+  constructor(
+    @Inject('FLIGHTS_SERVICE') private readonly kafkaClient: ClientKafka,
+  ) {}
+
+  // async onModuleInit() {
+  //   await this.kafkaClient.connect();
+  //   this.kafkaClient.subscribeToResponseOf('book_flight.reply');
+  // }
+
+  async onModuleInit() {
+    await this.kafkaClient.connect();
+    this.kafkaClient.subscribeToResponseOf('book_flight');
+    // Gửi thông điệp test
+  }
+
   @MessagePattern('book_hotel')
   async bookHotel(@Payload() message) {
     // Logic để book khách sạn
@@ -16,5 +31,13 @@ export class HotelsService {
     // Logic để hủy đặt phòng khách sạn
     console.log('Canceling hotel:', message.value);
     return { status: 'success', bookingId: message.value.bookingId };
+  }
+
+  createFlight() {
+    console.log('🟢====>11111', 11111);
+    this.kafkaClient.emit('book_flight', { value: '1111' });
+    return {
+      message: 'OK',
+    };
   }
 }
